@@ -1,0 +1,15 @@
+{
+    "name": "Node.js Sample",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "api",
+    "workspaceFolder": "/api",
+    "shutdownAction": "stopCompose",
+    // Use 'settings' to set *default* container specific settings.json values on container create. 
+    // You can edit these settings after create using File > Preferences > Settings > Remote.
+    "settings": {
+        "workbench.colorTheme": "Night Owl",
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    
+    "extensions": [ "dbaeumer.vscode-eslint"]
+  }
