@@ -96,7 +96,24 @@ epoca = 10
     piernaejesy,
     piernaejesz,
 )
-
+cinturaejesx_counts*=100
+cinturaejesy_counts*=100
+cinturaejesz_counts*=100
+manoejesx_counts*=100
+manoejesy_counts*=100
+manoejesz_counts*=100
+piernaejesx_counts*=100
+piernaejesy_counts*=100
+piernaejesz_counts*=100
+cinturaejesx_f2_counts*=100
+cinturaejesy_f2_counts*=100
+cinturaejesz_f2_counts*=100
+manoejesx_f2_counts*=100
+manoejesy_f2_counts*=100
+manoejesz_f2_counts*=100
+piernaejesx_f2_counts*=100
+piernaejesy_f2_counts*=100
+piernaejesz_f2_counts*=100
 
 if cinturaejesx.size > 0:
     cinturavm = vector_magnitude(

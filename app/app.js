@@ -5,7 +5,7 @@ const {PythonShell} =require('python-shell');
 app.post('/hola', function (req, res) {
     res.send('[POST]Saludos desde express');
 });
-app.get('/hola', function (req, res) {
+app.get('/holaperro', function (req, res) {
     PythonShell.run(myPythonScriptPath, null, function (err, result){
         if (err) throw err;
         // result is an array consisting of messages collected
