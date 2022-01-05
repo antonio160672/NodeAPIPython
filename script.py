@@ -1,19 +1,24 @@
-# script.py
-my_name = 'Carlos'
-my_age = 18  # no es broma
-my_height = 172  # cm
-my_weight = 71  # kg
-my_eyes = 'Brown'
-my_teeth = 'White'
-my_hair = 'Black'
-
-print ("Let's talk about %s." % my_name)
-print ("He's %d centimeters tall." % my_height)
-print ("He's %d kilograms heavy." % my_weight)
-print ("Actually that's not too heavy.")
-print ("He's got %s eyes and %s hair." % (my_eyes, my_hair))
-print ("His teeth are usually %s depending on the coffee." % my_teeth)
-
-# this line is tricky, try to get it exactly right
-print ("If I add %d, %d, and %d I get %d. I don't know what that means but, whatever." % (
-    my_age, my_height, my_weight, my_age + my_height + my_weight))
+import sys
+import requests
+from bs4 import BeautifulSoup
+from csv import writer
+# bs4 module for web scraping and requests for making HTTPS requests using Python.
+response = requests.get('https://leetcode.com / shubhamk314')
+soup = BeautifulSoup(response.text, 'html.parser')
+main_content = soup.select(
+    '# base_content>div>div>div.col-sm-5.col-md-4>div:nth-child(3)>ul')
+list_items = main_content[0].select('li')
+items = ['Solved Question', 'Accepted Submission', 'Acceptance Rate']
+n = 0
+ 
+# It will create csv files named progress.csv in root folder once this is script is called.
+with open('progress.csv', 'w') as csv_file:
+  csv_writer = writer(csv_file)
+  headers = ['Name', 'Score']
+  csv_writer.writerow(headers)
+  while(n < 3):
+    name = items[n]
+    score = list_items[n].find('span').get_text().strip()
+    csv_writer.writerow([name, score])
+    n = n + 1
+print("csv file created for leetcode")

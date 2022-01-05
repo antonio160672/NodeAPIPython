@@ -72,5 +72,5 @@ def recuperacionData(args):
     dfaux.columns = cabecera
     df = dfaux
     #df.to_csv('actividades.csv', header=True, index=False)
-    display(df)
+    #display(df)
     return df

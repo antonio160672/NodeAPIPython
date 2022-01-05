@@ -60,7 +60,7 @@ def formatData(df):
             # manoejesz.append(float(row['manoejesz'][i]))
 
         contador = contador+1
-    print(contador)
+    #print(contador)
     sampling_rate = 102
     segundos = contador*30
     redution = segundos*sampling_rate

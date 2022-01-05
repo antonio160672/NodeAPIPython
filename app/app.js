@@ -1,18 +1,30 @@
 const express = require("express");
 const app = express();
-var myPythonScriptPath = 'script.py';
-const {PythonShell} =require('python-shell');
+var myPythonScriptPath = 'gasto_energetico_python_tesis/gastoenergetico.py';
+const { PythonShell } = require('python-shell');
+let pyshell = new PythonShell(myPythonScriptPath);
+
+
 app.post('/hola', function (req, res) {
     res.send('[POST]Saludos desde express');
 });
-app.get('/holaperro', function (req, res) {
-    PythonShell.run(myPythonScriptPath, null, function (err, result){
+
+app.get('/holaperr', function (req, res) {
+    let options = {
+        mode: 'text',
+        args: ['shubhamk314'] //An argument which can be accessed in the script using sys.argv[1]
+    };
+
+
+    PythonShell.run(myPythonScriptPath, null, function (err, result) {
         if (err) throw err;
         // result is an array consisting of messages collected
         //during execution of script.
-        console.log('result: ', result.toString());
-        res.send(result.toString())
-  });
+        let data=JSON.parse(result)
+        console.log('result: ', typeof (data));
+        res.send(data)
+    });
+
 });
 app.listen(3000, () => {
     console.log("El servidor está inicializado en el puerto 3000");
