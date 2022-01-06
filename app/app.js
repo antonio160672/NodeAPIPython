@@ -9,7 +9,7 @@ app.post('/hola', function (req, res) {
     res.send('[POST]Saludos desde express');
 });
 
-app.get('/holaperr', function (req, res) {
+app.get('/holaperro', function (req, res) {
     let options = {
         mode: 'text',
         args: ['shubhamk314'] //An argument which can be accessed in the script using sys.argv[1]
