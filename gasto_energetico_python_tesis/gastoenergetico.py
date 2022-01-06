@@ -14,8 +14,12 @@ import sys
 
 sys.path.append("../sensormotion")
 sys.path.append("../gastoenergetico")
-
-
+infonode=sys.argv
+print(infonode)
+indice=sys.argv[1]
+epoca = float(sys.argv[2])
+down=float(sys.argv[3])
+up=float(sys.argv[4])
 df = recuperacionData("holamundo")
 (
     cinturaejesx,
@@ -62,7 +66,7 @@ s.columns = [
     "manoejesz",
 ]
 # s.to_csv('actividades.csv', header=True, index=False)
-epoca = 10
+
 (
     cinturaejesx_counts,
     cinturaejesy_counts,
@@ -83,8 +87,8 @@ epoca = 10
     piernaejesy_f2_counts,
     piernaejesz_f2_counts,
 ) = filter_counts(
-    0.8,
-    2.5,
+    down,
+    up,
     epoca,
     time,
     sampling_rate,
