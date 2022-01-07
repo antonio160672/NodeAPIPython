@@ -8,9 +8,9 @@ services:
     volumes:
       - ".vscode:/api/.vscode"
     environment:
-      PORT: "3000"
+      PORT: "3300"
       NODE_ENV: "development"
-    ports: ["3000:3000"]
+    ports: ["3300:3300"]
     tty: true
     
     
