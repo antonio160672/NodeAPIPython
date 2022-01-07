@@ -5,11 +5,11 @@ const { PythonShell } = require('python-shell');
 let pyshell = new PythonShell(myPythonScriptPath);
 
 
-app.post('/hola', function (req, res) {
+app.post('/consultarentidades', function (req, res) {
     res.send('[POST]Saludos desde express');
 });
 
-app.get('/holaperro', function (req, res) {
+app.get('/getvectorecuento', function (req, res) {
     let options = {
         mode: 'text',
         args: ['nombre_archio', '10', '0.2', '2.5'] //An argument which can be accessed in the script using sys.argv[1]
@@ -24,6 +24,6 @@ app.get('/holaperro', function (req, res) {
     });
 
 });
-app.listen(3000, () => {
+app.listen(3300, () => {
     console.log("El servidor está inicializado en el puerto 3000");
 });
