@@ -20,7 +20,7 @@ indice=sys.argv[1]
 epoca = float(sys.argv[2])
 down=float(sys.argv[3])
 up=float(sys.argv[4])
-df = recuperacionData("holamundo")
+df = recuperacionData(indice)
 (
     cinturaejesx,
     cinturaejesy,

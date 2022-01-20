@@ -20,16 +20,16 @@ def asiganacion(Df1, Df2, Df3):
     return Df1
 
 
-def recuperacionData(args):
+def recuperacionData(id):
     
     connection = client.connect(
         "http://187.188.90.137:4200/", username="crate", timeout=5)
     cursor = connection.cursor()
-    consulta = '1637731212000'
+    # consulta = '1637731212000'
     #cadena="SELECT entity_id, pierna, mano, cintura, cinturaejesx, cinturaejesy, cinturaejesz, piernaejesx, piernaejesy, piernaejesz, manoejesx, manoejesy, manoejesz,fecha_inicio ,fecha_fin FROM doc.etpersona  where fecha_inicio =?"
     #cursor.execute("SELECT name FROM locations WHERE name = ?", ("Algol"))
-    cadena = "SELECT entity_id,cintura, pierna, mano,  cinturaejesx, cinturaejesy, cinturaejesz, piernaejesx, piernaejesy, piernaejesz, manoejesx, manoejesy, manoejesz,fecha_inicio ,fecha_fin FROM doc.etpersona where entity_id='AntonioTrotar1'  order by fecha_inicio"
-    cursor.execute(cadena)
+    consulta = "SELECT entity_id,cintura, pierna, mano,  cinturaejesx, cinturaejesy, cinturaejesz, piernaejesx, piernaejesy, piernaejesz, manoejesx, manoejesy, manoejesz,fecha_inicio ,fecha_fin FROM doc.etpersona where entity_id=?  order by fecha_inicio"
+    cursor.execute(consulta,(id,))
 
     cabecera = [column[0] for column in cursor.description]
     result = cursor.fetchall()

@@ -12,7 +12,7 @@ app.post('/consultarentidades', function (req, res) {
 app.get('/getvectorecuento', function (req, res) {
     let options = {
         mode: 'text',
-        args: ['nombre_archio', '10', '0.2', '2.5'] //An argument which can be accessed in the script using sys.argv[1]
+        args: ['ExperimentoReposoAntonio', '10', '0.2', '2.5'] //An argument which can be accessed in the script using sys.argv[1]
     };
     PythonShell.run(myPythonScriptPath, options, function (err, result) {
         if (err) throw err;
@@ -25,5 +25,5 @@ app.get('/getvectorecuento', function (req, res) {
 
 });
 app.listen(3300, () => {
-    console.log("El servidor está inicializado en el puerto 3000");
+    console.log("El servidor está inicializado en el puerto 3300");
 });

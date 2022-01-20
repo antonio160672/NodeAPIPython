@@ -27,6 +27,24 @@ def filter_counts(
     piernaejesy,
     piernaejesz,
 ):
+    cinturaejesx_counts= []
+    cinturaejesy_counts= []
+    cinturaejesz_counts= []
+    manoejesx_counts= []
+    manoejesy_counts= []
+    manoejesz_counts= []
+    piernaejesx_counts= []
+    piernaejesy_counts= []
+    piernaejesz_counts= []
+    cinturaejesx_f2_counts= []
+    cinturaejesy_f2_counts= []
+    cinturaejesz_f2_counts= []
+    manoejesx_f2_counts= []
+    manoejesy_f2_counts= []
+    manoejesz_f2_counts= []
+    piernaejesx_f2_counts= []
+    piernaejesy_f2_counts= []
+    piernaejesz_f2_counts= []
 
     b, a = build_filter((down, up), sampling_rate, "bandpass", filter_order=4)
     # b, a = build_filter(10, sampling_rate, 'low', filter_order=4)
@@ -71,6 +89,9 @@ def filter_counts(
             integrate="trapezoid",
             plot=False,
         )
+        cinturaejesx_counts*=100
+        cinturaejesy_counts*=100
+        cinturaejesz_counts*=100
 
     if manoejesx.size > 0:
         manoejesx_counts = convert_counts(
@@ -97,6 +118,9 @@ def filter_counts(
             integrate="trapezoid",
             plot=False,
         )
+        manoejesx_counts*=100
+        manoejesy_counts*=100
+        manoejesz_counts*=100 
 
     if piernaejesx.size > 0:
         piernaejesx_counts = convert_counts(
@@ -123,6 +147,9 @@ def filter_counts(
             integrate="trapezoid",
             plot=False,
         )
+        piernaejesx_counts*=100
+        piernaejesy_counts*=100
+        piernaejesz_counts*=100
 
     if cinturaejesx.size > 0:
         cinturaejesx_f2_counts = convert_counts(
@@ -149,6 +176,10 @@ def filter_counts(
             integrate="simpson",
             plot=False,
         )
+        cinturaejesx_f2_counts*=100
+        cinturaejesy_f2_counts*=100
+        cinturaejesz_f2_counts*=100
+    
     if manoejesx.size > 0:
         manoejesx_f2_counts = convert_counts(
             manoejesx_f2,
@@ -177,6 +208,11 @@ def filter_counts(
             integrate="simpson",
             plot=False,
         )
+        manoejesx_f2_counts*=100
+        manoejesy_f2_counts*=100
+        manoejesz_f2_counts*=100
+    
+    
     if piernaejesx.size > 0:
         piernaejesx_f2_counts = convert_counts(
             piernaejesx_f2,
@@ -205,24 +241,10 @@ def filter_counts(
             integrate="simpson",
             plot=False,
         )
-    cinturaejesx_counts*=100
-    cinturaejesy_counts*=100
-    cinturaejesz_counts*=100
-    manoejesx_counts*=100
-    manoejesy_counts*=100
-    manoejesz_counts*=100
-    piernaejesx_counts*=100
-    piernaejesy_counts*=100
-    piernaejesz_counts*=100
-    cinturaejesx_f2_counts*=100
-    cinturaejesy_f2_counts*=100
-    cinturaejesz_f2_counts*=100
-    manoejesx_f2_counts*=100
-    manoejesy_f2_counts*=100
-    manoejesz_f2_counts*=100
-    piernaejesx_f2_counts*=100
-    piernaejesy_f2_counts*=100
-    piernaejesz_f2_counts*=100
+        piernaejesx_f2_counts*=100
+        piernaejesy_f2_counts*=100
+        piernaejesz_f2_counts*=100
+
     return (
         cinturaejesx_counts,
         cinturaejesy_counts,
