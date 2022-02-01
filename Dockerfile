@@ -4,6 +4,7 @@ WORKDIR /api
 RUN apt-get update 
 RUN npm install 
 RUN npm install python-shell
+RUN npm install body-parser
 RUN apt-get install --yes python3-pip
 RUN pip3 install sensormotion
 RUN pip3 install numpy
