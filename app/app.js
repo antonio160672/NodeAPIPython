@@ -3,20 +3,31 @@ const app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 var myPythonScriptPath = 'gasto_energetico_python_tesis/gastoenergetico.py';
+var consultasPython = 'pythonconsultas/verificarentidad.py';
 const { PythonShell } = require('python-shell');
-let pyshell = new PythonShell(myPythonScriptPath);
+//let pyshell = new PythonShell(myPythonScriptPath);
 
 
-app.post('/consultarentidades', function (req, res) {
-    res.send('[POST]Saludos desde express');
+app.post('/existenciaEnditidad', function (req, res) {
+    //funcion para verificar si existe la entidad a registrar
+    var entidad = req.body.entidad
+    console.log('entidad: ', entidad);
+    let options = {
+        mode: 'text',
+        args: [entidad] 
+    };
+    PythonShell.run(consultasPython, options, function (err, result) {
+        if (err) throw err;
+        res.send(result[0])
+    });
 });
 
 app.post('/obteinvectorecuento', function (req, res) {
     //verrificar variables primero
-    var entidad=req.body.entidad
-    var epocas=req.body.epocas
-    var cortedown=req.body.cortedown
-    var corteup=req.body.corteup
+    var entidad = req.body.entidad
+    var epocas = req.body.epocas
+    var cortedown = req.body.cortedown
+    var corteup = req.body.corteup
 
     let options = {
         mode: 'text',
@@ -31,7 +42,7 @@ app.post('/obteinvectorecuento', function (req, res) {
         res.send(result[1])
     });
 
-    
+
 });
 
 app.get('/getvectorecuento', function (req, res) {
