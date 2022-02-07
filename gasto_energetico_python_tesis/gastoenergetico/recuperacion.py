@@ -36,8 +36,6 @@ def recuperacionData(id):
     largo = len(result)
     df = pd.DataFrame(result)
     df.columns = cabecera
-    # df=df.drop(5)
-    #df  = df.dropna()
     dfaux = pd.DataFrame()
     i = 1
     while i <= largo:

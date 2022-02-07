@@ -61,7 +61,7 @@ def formatData(df):
 
         contador = contador+1
     #print(contador)
-    sampling_rate = 102
+    sampling_rate = 102#65  #verficar si este valor es critico
     segundos = contador*30
     redution = segundos*sampling_rate
     time = np.arange(0, (segundos)*sampling_rate) * 10
