@@ -40,23 +40,25 @@ app.post('/obteinvectorecuento', function (req, res) {
         // result is an array consisting of messages collected
         //during execution of script.
         //let data=JSON.parse(result)
-        console.log('result: ', typeof (result));
-        res.send(result[1])
+        respuesta = JSON.parse(result[1]);
+        console.log('result: ', respuesta);
+        res.send(respuesta)
     });
 });
 
 app.get('/getexperimentos', function (req, res) {
     PythonShell.run(recuperacionData, null, function (err, result) {
         if (err) throw err;
-        console.log('result: ', typeof (result));
-        res.send(result[0])
+        respuesta = JSON.parse(result[0]);
+        console.log('result: ', typeof (respuesta.Experimentos));
+        res.send(respuesta)
     });
 
 });
 //modificar a post pero de momento get
-app.get('/datosExperimento', function (req, res) {
+app.post('/datosExperimento', function (req, res) {
 
-    var entidad = req.body.entidad
+    var entidad = req.body.entidad //'CaminataAntonio1'
 
     let options = {
         mode: 'text',
@@ -64,8 +66,9 @@ app.get('/datosExperimento', function (req, res) {
     };
     PythonShell.run(datosExperimento, options, function (err, result) {
         if (err) throw err;
-        console.log('result: ', result);
-        res.send(result)
+        respuesta = JSON.parse(result[0]);
+        console.log('result: ', respuesta);
+        res.send(respuesta)
     });
 });
 
@@ -80,8 +83,9 @@ app.get('/getvectorecuento', function (req, res) {
         // result is an array consisting of messages collected
         //during execution of script.
         //let data=JSON.parse(result)
-        console.log('result: ', typeof (result));
-        res.send(result[1])
+        respuesta = JSON.parse(result[1]);
+        console.log('result: ', respuesta);
+        res.send(respuesta)
     });
     const end = new Date() - start;
     console.log(`Tiempo de ejecución ${end} ms`);
