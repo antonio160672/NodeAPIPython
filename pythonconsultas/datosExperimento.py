@@ -6,8 +6,10 @@ import json
 infonode=sys.argv
 #print(infonode)
 indice=infonode[1]
+fichero = open('/api/config.txt')
+URL = fichero.readlines(1)
 connection = client.connect(
-    "http://187.188.90.137:4200/", username="crate", timeout=5)
+    URL[0], username="crate", timeout=5)
 cursor = connection.cursor()
 consulta = "SELECT cintura, mano, pierna FROM doc.etpersona where entity_id=? group by cintura, mano, pierna HAVING  COUNT()>1 limit 100;"
 cursor.execute(consulta,(indice,))

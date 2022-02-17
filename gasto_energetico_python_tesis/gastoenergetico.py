@@ -20,7 +20,9 @@ indice=sys.argv[1]
 epoca = float(sys.argv[2])
 down=float(sys.argv[3])
 up=float(sys.argv[4])
-df = recuperacionData(indice)
+fichero = open('/api/config.txt')
+URL = fichero.readlines(1)
+df = recuperacionData(indice,URL[0])
 (
     cinturaejesx,
     cinturaejesy,

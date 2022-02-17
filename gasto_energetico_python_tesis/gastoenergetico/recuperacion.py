@@ -20,10 +20,10 @@ def asiganacion(Df1, Df2, Df3):
     return Df1
 
 
-def recuperacionData(id):
+def recuperacionData(id,URL):
     
     connection = client.connect(
-        "http://187.188.90.137:4200/", username="crate", timeout=5)
+        URL, username="crate", timeout=5)
     cursor = connection.cursor()
     # consulta = '1637731212000'
     #cadena="SELECT entity_id, pierna, mano, cintura, cinturaejesx, cinturaejesy, cinturaejesz, piernaejesx, piernaejesy, piernaejesz, manoejesx, manoejesy, manoejesz,fecha_inicio ,fecha_fin FROM doc.etpersona  where fecha_inicio =?"
