@@ -9,7 +9,7 @@ URL = fichero.readlines(1)
 connection = client.connect(
     URL[0], username="crate", timeout=5)
 cursor = connection.cursor()
-consulta = "SELECT entity_id FROM doc.etpersona where entity_id=? order by fecha_inicio limit 100;"
+consulta = "SELECT entity_id FROM doc.etpersona where entity_id=? order by fecha_inicio;"
 cursor.execute(consulta,(entidad,))
 
 cabecera = [column[0] for column in cursor.description]

@@ -11,7 +11,7 @@ URL = fichero.readlines(1)
 connection = client.connect(
     URL[0], username="crate", timeout=5)
 cursor = connection.cursor()
-consulta = "SELECT cintura, mano, pierna FROM doc.etpersona where entity_id=? group by cintura, mano, pierna HAVING  COUNT()>1 limit 100;"
+consulta = "SELECT cintura, mano, pierna FROM doc.etpersona where entity_id=? group by cintura, mano, pierna HAVING  COUNT()>0;"
 cursor.execute(consulta,(indice,))
 result = cursor.fetchall()
 cabecera = [column[0] for column in cursor.description]

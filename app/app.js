@@ -41,7 +41,7 @@ app.post('/obteinvectorecuento', function (req, res) {
         //during execution of script.
         //let data=JSON.parse(result)
         respuesta = JSON.parse(result[1]);
-        console.log('result: ', respuesta);
+        //console.log('result: ', respuesta);
         res.send(respuesta)
     });
 });
@@ -50,7 +50,7 @@ app.get('/getexperimentos', function (req, res) {
     PythonShell.run(recuperacionData, null, function (err, result) {
         if (err) throw err;
         respuesta = JSON.parse(result[0]);
-        console.log('result: ', typeof (respuesta.Experimentos));
+        //console.log('result: ', typeof (respuesta.Experimentos));
         res.send(respuesta)
     });
 
@@ -67,7 +67,7 @@ app.post('/datosExperimento', function (req, res) {
     PythonShell.run(datosExperimento, options, function (err, result) {
         if (err) throw err;
         respuesta = JSON.parse(result[0]);
-        console.log('result: ', respuesta);
+        //console.log('result: ', respuesta);
         res.send(respuesta)
     });
 });
@@ -84,7 +84,7 @@ app.get('/getvectorecuento', function (req, res) {
         //during execution of script.
         //let data=JSON.parse(result)
         respuesta = JSON.parse(result[1]);
-        console.log('result: ', respuesta);
+        //console.log('result: ', respuesta);
         res.send(respuesta)
     });
     const end = new Date() - start;
